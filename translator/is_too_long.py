@@ -1,6 +1,6 @@
 import tiktoken
 
-def is_too_long(text, max_tokens=200, model="gpt-4.1-nano"):
+def is_too_long(text, max_tokens=200, model="gpt-4"):
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:

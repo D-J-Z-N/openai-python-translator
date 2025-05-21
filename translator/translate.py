@@ -2,6 +2,7 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 from rich.console import Console
+from translator.is_too_long import is_too_long
 
 load_dotenv()
 console = Console()
@@ -10,7 +11,7 @@ console = Console()
 def translate(text):
 
     if is_too_long(text):
-        return console.print("[red bold]The text is too long.[/red bold]")
+        raise ValueError("The text is too long.")
 
     token = os.getenv("OPENAI_API_KEY")
     endpoint = "https://models.github.ai/inference"
