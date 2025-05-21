@@ -2,15 +2,15 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 from rich.console import Console
-from translator.is_too_long import is_too_long
+from translator.exceeds_token_limit import exceeds_token_limit
 
 load_dotenv()
 console = Console()
 
 
-def translate(text):
+def translate(text: str) -> str:
 
-    if is_too_long(text):
+    if exceeds_token_limit(text):
         raise ValueError("The text is too long.")
 
     token = os.getenv("OPENAI_API_KEY")

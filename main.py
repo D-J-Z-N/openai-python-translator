@@ -25,9 +25,11 @@ def main():
 
     except FileNotFoundError:
         console.print(f"[red bold]Error: Could not find {input_file_path}. Please make sure the file exists.[/red bold]")
+
     except ValueError as e:
         console.print(f"[red bold]{str(e)}[/red bold]")
         sys.exit(1)
+        
     except Exception as e:
         console.print(f"[red bold]An error occurred: {str(e)}[/red bold]")
 
